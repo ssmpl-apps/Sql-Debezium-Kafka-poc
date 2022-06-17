@@ -1,34 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: debezium-deployment
-  labels:
-    app: debezium
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: debezium
-  template:
-    metadata:
-      labels:
-        app: debezium
-    spec:
-      containers:
-        - name: debezium
-          image: debezium
-          ports:
-            - containerPort: 80
-          volumeMounts:
-            - name: debezium-properties
-              mountPath: "/usr/local/debezium-server-1.6/conf"
-      volumes:
-        - name: debezium-properties
-          configMap:
-            name: dbz-config
-
----
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -56,7 +25,3 @@ data:
     debezium.source.table.include.list=dbo.Persons
     debezium.source.database.history.file.filename=data/FileDatabaseHistory1.dat
     debezium.source.database.history=io.debezium.relational.history.FileDatabaseHistory
-
----
-
-
