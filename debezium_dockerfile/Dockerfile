@@ -2,7 +2,7 @@ FROM openjdk:17-alpine
 WORKDIR /
 RUN mkdir -p /usr/local/debezium-server-1.6
 # ENV JAVA_OPTS="$JAVA_OPTS -javaagent:/usr/local/newrelic/newrelic.jar"
-ADD ./debezium_dockerfile/debezium-server-1.6/ /usr/local/debezium-server-1.6/
+ADD ./debezium-server-1.6/ /usr/local/debezium-server-1.6/
 
 EXPOSE 8080
 WORKDIR /usr/local/debezium-server-1.6
