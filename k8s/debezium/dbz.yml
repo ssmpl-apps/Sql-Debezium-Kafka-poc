@@ -42,9 +42,9 @@ spec:
             name: debezium-connect
             volumeMounts:
               - name: debezium-properties
-                mountPath: "/usr/local/debezium-server-1.6/conf"
+                mountPath: "/usr/local/debezium-server-1.9/conf"
               - name: offset-storage
-                mountPath: "/usr/local/debezium-server-1.6/data"
+                mountPath: "/usr/local/debezium-server-1.9/data"
         volumes:
           - name: debezium-properties
             configMap:

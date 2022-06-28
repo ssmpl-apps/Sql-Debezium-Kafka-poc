@@ -31,6 +31,17 @@ spec:
           value: Flipkart*13
         - name: MSSQL_AGENT_ENABLED
           value: "true"
+        volumeMounts:
+              - name: init-script
+                mountPath: "/usr/local/backup"
+        # lifecycle:
+        #     postStart:
+        #       exec:
+        #         command: ["/bin/sh", "-c", "sleep 30; /opt/mssql-tools/bin/sqlcmd -S mssqlinst -U SA -P Flipkart*13 -Q \"restore database test_db from disk=N'/usr/local/backup/test_db_backup.bak'\""]
+      volumes:
+        - name: init-script
+          persistentVolumeClaim:
+            claimName: pvc-sql
 ---
 apiVersion: v1
 kind: Service

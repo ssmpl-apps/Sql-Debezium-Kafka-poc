@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-dbz
 spec:
-  storageClassName: slow
+  storageClassName: gce-pd-dbz
   accessModes:
     - ReadWriteOnce
   resources:
