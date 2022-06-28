@@ -10,7 +10,6 @@ spec:
   ports:
     - name: kafka-port
       port: 9092
-      nodePort: 32092
       targetPort: 9092
   selector:
     app: kafka-broker
